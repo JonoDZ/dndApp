@@ -1,5 +1,5 @@
 import charGen
-
+import buildingGen
 def genChar(toGen=1):
 	charlist =[]
 	npcsToGen = 10
@@ -7,4 +7,8 @@ def genChar(toGen=1):
 	for i in range(0,npcsToGen):
 		charlist.insert(0,(charGen.generateRace()))
 	return charlist
-#(genChar(10))
+
+def genBuilding():
+	buildingList =[]
+	buildingList = buildingGen.generateBuilding()
+	return buildingList
