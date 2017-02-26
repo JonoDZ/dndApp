@@ -4,10 +4,13 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<title>Bootstrap 101 Template</title>
-
+	<title>Penuts City Gen</title>
 	<!-- Bootstrap -->
-	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/Bootstrap.min.css') }}">
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/bootstrap.min.css') }}">
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/bootstrap-toggle.css') }}">
+	<script type=text/javascript src="{{ url_for('static', filename='js/jq.js') }}"></script>
+	<script type=text/javascript src="{{ url_for('static', filename='js/bootstrap-toggle.js') }}"></script>
+	<script type=text/javascript src="{{ url_for('static', filename='js/main.js') }}"></script>
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -17,37 +20,26 @@
 	<![endif]-->
 </head>
 <body>
-	<script type=text/javascript src="{{ url_for('static', filename='js/jq.js') }}"></script>
+	
 	<div class="jumbotron text-center">
 	  <h1>Penuts DnD City Gen'er 0.1</h1>
 	</div>
 	<div id="selections" class="container">
 		<div class="well">
-			<div class="checkbox">
-			  <label><input type="checkbox" value="">Option 1</label>
-			</div>
-			<div class="checkbox">
-			  <label><input type="checkbox" value="">Option 2</label>
-			</div>
-			<div class="checkbox disabled">
-			  <label><input type="checkbox" value="">Option 3</label>
-			</div>
+		<div id="buildingsToGen">
+			<input type="checkbox" checked data-toggle="toggle" name="inn" data-on="Inn" data-off="Inn">
+			<input type="checkbox" checked data-toggle="toggle" name="alchemist" data-on="Alchemist" data-off="Alchemist">
+			<input type="checkbox" checked data-toggle="toggle"  name="blacksmith" data-on="Blacksmith" data-off="Blacksmith">
+			<input type="checkbox" checked data-toggle="toggle" name="jeweler" data-on="Jeweler" data-off="Jeweler">
+			<input type="checkbox" checked data-toggle="toggle" name="magicweps" data-on="Magic wepons" data-off="Magic wepons">
+			<input type="checkbox" checked data-toggle="toggle" name="enchanter" data-on="Enchanter" data-off="Enchanter">
+		</div>
 
-			<script type=text/javascript>
-			  $(function() {
-			    $('a#calculate').bind('click', function() {
-			      $.getJSON('/redo', {
-			        a: $('input[name="a"]').val(),
-			      }, function(data) {
-			      	$("#NpcTable").empty();
-			        $("#NpcTable").append(data);
-			      });
-			      return false;
-			    });
-			  });
-			</script>
+			<div id="console-event"></div>
+			<span><a href=# id="regenBuildings">Go!</a></span>
+
 			<h1>NPC's To Gen'</h1>
-			<span><input type=text size=5 name=a value="10"><a href=# id=calculate>Go!</a></span>
+			<span><input type=text size=5 name=a value="10"><a href=# id="calculate">Go!</a></span>
 
 		</div>
 	</div>

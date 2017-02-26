@@ -13,12 +13,15 @@ def add_numbers():
     characterList=dndGenerator.genChar(a)
     return jsonify(render_template('npctable.html', charList=characterList))
 
-
+@app.route('/regenBuildings')
+def regenBuildings():
+    a = request.args.get('a',0)
+    if a != 0:
+    	return jsonify(a)
+    else:
+    	return jsonify("goodbye")
 @app.route('/')
 def hello_world():
     characterList=dndGenerator.genChar(10)
     buildingList=dndGenerator.genBuilding()
     return render_template('index.html', charList=characterList, buildingList=buildingList)
-
-
-
