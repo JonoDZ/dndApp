@@ -2,16 +2,16 @@ from flask import Flask, url_for, request, jsonify
 from flask import render_template
 import dndGenerator
 
-
-
 app = Flask(__name__)
 
+#### variables #####
+requestedNpcs = 10
 
-@app.route('/_add_numbers')
+@app.route('/redo')
 def add_numbers():
     a = request.args.get('a', 0, type=int)
-    b = request.args.get('b', 0, type=int)
-    return jsonify(result=a + b)
+    characterList=dndGenerator.genChar(a)
+    return jsonify(render_template('npctable.html', charList=characterList))
 
 
 @app.route('/')
