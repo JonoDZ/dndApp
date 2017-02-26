@@ -8,7 +8,12 @@ def genChar(toGen=10):
 		charlist.insert(0,(charGen.generateRace()))
 	return charlist
 
-def genBuilding():
+def genBuilding(buildings=0):
 	buildingList =[]
-	buildingList = buildingGen.generateBuilding()
+	if buildings == 0:
+		buildingList = buildingGen.generateBuilding()
+	elif not buildings:
+		buildingList = buildingGen.generateBuilding()
+	else:
+		buildingList = buildingGen.generateBuilding(buildings)
 	return buildingList

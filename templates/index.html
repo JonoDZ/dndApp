@@ -19,32 +19,48 @@
 	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body>
-	
+<body>	
 	<div class="jumbotron text-center">
-	  <h1>Penuts DnD City Gen'er 0.1</h1>
+	  <h1>Reroll That City!</h1>
+	  <h3> alpha v0.2 </h3>
 	</div>
-	<div id="selections" class="container">
+	<div id="buildingsSelection" class="container">
 		<div class="well">
-		<div id="buildingsToGen">
-			<input type="checkbox" checked data-toggle="toggle" name="inn" data-on="Inn" data-off="Inn">
-			<input type="checkbox" checked data-toggle="toggle" name="alchemist" data-on="Alchemist" data-off="Alchemist">
-			<input type="checkbox" checked data-toggle="toggle"  name="blacksmith" data-on="Blacksmith" data-off="Blacksmith">
-			<input type="checkbox" checked data-toggle="toggle" name="jeweler" data-on="Jeweler" data-off="Jeweler">
-			<input type="checkbox" checked data-toggle="toggle" name="magicweps" data-on="Magic wepons" data-off="Magic wepons">
-			<input type="checkbox" checked data-toggle="toggle" name="enchanter" data-on="Enchanter" data-off="Enchanter">
+			<div id="buildingsToGen">
+				<h3> Buildings </h3>
+				<div class="col-md-2">
+					<input type="checkbox" data-width=153 data-size="small" checked data-toggle="toggle" name="inn" data-on="Inn" data-off="Inn">
+				</div>
+				<div class="col-md-2">
+					<input type="checkbox" data-width=153 data-size="small" checked data-toggle="toggle" name="alchemist" data-on="Alchemist" data-off="Alchemist">
+				</div>
+				<div class="col-md-2">
+					<input type="checkbox" data-width=153 data-size="small" checked data-toggle="toggle" name="blacksmith" data-on="Blacksmith" data-off="Blacksmith">
+				</div>
+				<div class="col-md-2">
+					<input type="checkbox" data-width=153 data-size="small" checked data-toggle="toggle" name="jeweler" data-on="Jeweler" data-off="Jeweler">
+				</div>
+				<div class="col-md-2">
+					<input type="checkbox" data-width=153 data-size="small" checked data-toggle="toggle" name="magicweps" data-on="Magic wepons" data-off="Magic wepons">
+				</div>
+				<div class="col-md-2">
+					<input type="checkbox" data-width=153 data-size="small" checked data-toggle="toggle" name="enchanter" data-on="Enchanter" data-off="Enchanter">
+				</div>		
+			</div>
+			<br>
+			<div id="npcSelection" class="container">
+				<h3>NPC's</h3>
+				<input type=text size=5 name=a value="10">
+				<hr>
+				<button type="button"  id="regenerateAll" class="btn btn-primary btn-lg">Reroll that City!</button>	
+			</div>	
 		</div>
+	</div>	
 
-			<div id="console-event"></div>
-			<span><a href=# id="regenBuildings">Go!</a></span>
+		
 
-			<h1>NPC's To Gen'</h1>
-			<span><input type=text size=5 name=a value="10"><a href=# id="calculate">Go!</a></span>
-
-		</div>
-	</div>
 	<div id="tables" class="container">	
-		<div id="NpcTable" class="col-md-7">
+		<div id="npcTable" class="col-md-7">
 			<h1>NPCs</h1>
 			<table class="table table-striped table-condensed table-hover">
 				<thead>
@@ -70,7 +86,7 @@
 			</table>	
 		</div>
 
-		<div class="col-md-5">
+		<div id="buildingsTable" class="col-md-5">
 			<h1>Buildings</h1>
 			<table class="table table-striped table-condensed table-hover">
 				<thead>

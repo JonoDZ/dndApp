@@ -17,7 +17,7 @@ buildings=[
 'magicweps'
 ]
 
-def generateBuilding():
+def generateBuilding(buildings=buildings):
 	#reset variables
 	
 	firstNames =[]

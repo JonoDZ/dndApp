@@ -1,31 +1,26 @@
-
   $(function() {
-    $('a#regenBuildings').bind('click', function() {	
+    $('#regenerateAll').bind('click', function() {
+
+      $.getJSON('/regenNpcs', {
+        a: $('input[name="a"]').val(),
+      }, function(data) {
+      	$("#npcTable").empty();
+        $("#npcTable").append(data);
+      });
 
       var selected = "";
       $('#buildingsToGen input:checked').each(function() {
-        selected = selected + "," + String($(this).attr('data-on'));
+        selected = selected + "," + String($(this).attr('name'));
       });
       $.getJSON('/regenBuildings', {
         a: selected,
       }, function(data) {
-		console.log(data)
-		//$('#console-event').text(data);
+      	$("#buildingsTable").empty();
+        $("#buildingsTable").append(data);
       });
-      return false;
-    });
-  });
 
-  $(function() {
-    $('a#calculate').bind('click', function() {
-
-      $.getJSON('/redo', {
-        a: $('input[name="a"]').val(),
-      }, function(data) {
-      	$("#NpcTable").empty();
-        $("#NpcTable").append(data);
-      });
       return false;
+
     });
   });
 
