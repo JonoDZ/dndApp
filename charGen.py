@@ -5,11 +5,10 @@ import sqlite3
 conn = sqlite3.connect('dnd.db')
 c = conn.cursor()
 
-#####################
-##### VARIABLES #####
-#####################
+#
+#VARIABLES
+#
 
-### LISTS ###
 #all races exactly as listed in DB. 
 #related to DB. dont change
 races = [
@@ -72,9 +71,6 @@ age = [
 'is he dead?'
 ]
 
-#####################
-##### FUNCTIONS #####
-#####################
 
 def generateRace(requestedRace=0):
 	#reset variables
@@ -97,6 +93,7 @@ def generateRace(requestedRace=0):
 		for row in c.execute('SELECT last FROM '+r+''):
 			if row[0] != None:
 				lastName.insert(0,row[0])
+		
 		#a random data from generated lists, apply to character.
 		character['firstName'] = random.choice(firstName)
 		character['lastName'] = random.choice(lastName)
