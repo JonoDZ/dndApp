@@ -9,19 +9,6 @@ c = conn.cursor()
 #VARIABLES
 #
 
-#all races exactly as listed in DB. 
-#related to DB. dont change
-races = [
-"human",
-"dragonborn",
-"dwarf",
-"halforc",
-"gnome",
-"elf",
-"halfling",
-"tiefling",
-"halfelf"
-]
 #possible builds in the town. 
 #non-db related
 buildings =[
@@ -32,7 +19,7 @@ buildings =[
 "jeweler"
 "enchanter"
 "magic weapons"
-"temple"
+"holysite"
 "animal keeper"
 ]
 #possible jobs in the town
@@ -71,33 +58,34 @@ age = [
 'is he dead?'
 ]
 
-
+#get all items from alist in DB
+def getItemsFromDb(item, table, connCursor=c):
+	returnList = []
+	for row in connCursor.execute('SELECT '+item+' FROM '+table+''):
+			if row[0] != None:
+				returnList.insert(0,row[0])
+	return returnList
 def generateRace(requestedRace=0):
 	#reset variables
 	character = {}
 	firstName =[]
 	lastName =[]
+	personality=[]
+	charRace =[]
 	#if user has specified a race
 	if (requestedRace == 0):
-		#get random race/gender
-		character['race'] = random.choice(races)
+		#build character details
 		character['gender'] = random.choice(gender)
-		#variables for DB looks ups
-		g = character['gender']
-		r = character['race']
-		#get all race and gender first names from db
-		for row in c.execute('SELECT '+g+' FROM '+r+''):
-			if row[0] != None:
-				firstName.insert(0,row[0])
-		#get all race last names from db
-		for row in c.execute('SELECT last FROM '+r+''):
-			if row[0] != None:
-				lastName.insert(0,row[0])
-		
-		#a random data from generated lists, apply to character.
-		character['firstName'] = random.choice(firstName)
-		character['lastName'] = random.choice(lastName)
+		character['race'] = random.choice(getItemsFromDb('race', 'race'))
+		character['lastName'] = random.choice(getItemsFromDb('last', character['race']))
+		character['firstName'] = random.choice(getItemsFromDb(character['gender'],character['race']))
+		character['personality1'] = random.choice(getItemsFromDb('personality1', 'commonTraits'))
+		character['personality2'] = random.choice(getItemsFromDb('personality2', 'commonTraits'))
 		character['age'] = random.choice(age)
+		#get all personality 1 types
+		#get all personality 2 tyoes
+		#a random data from generated lists, apply to character.
+
 		return(character)
 
 

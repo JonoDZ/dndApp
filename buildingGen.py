@@ -7,14 +7,15 @@ c = conn.cursor()
 
 #age of npc
 #related to DB. dont change
-
 buildings=[
 'inn',
 'alchemist',
 'blacksmith',
 'jeweler',
 'enchanter',
-'magicweps'
+'magicweps',
+'holysite',
+'stables'
 ]
 
 def generateBuilding(buildings=buildings):

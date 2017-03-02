@@ -18,9 +18,10 @@
       	$("#buildingsTable").empty();
         $("#buildingsTable").append(data);
       });
-
-      return false;
+    return false;
 
     });
   });
+
+  
 

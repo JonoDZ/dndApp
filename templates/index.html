@@ -6,12 +6,14 @@
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<title>Penuts City Gen</title>
 	<!-- Bootstrap -->
-	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/bootstrap.min.css') }}">
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/main.css') }}">
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/bootstrap.min.css') }}">
 	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/bootstrap-toggle.css') }}">
+
+
 	<script type=text/javascript src="{{ url_for('static', filename='js/jq.js') }}"></script>
 	<script type=text/javascript src="{{ url_for('static', filename='js/bootstrap-toggle.js') }}"></script>
 	<script type=text/javascript src="{{ url_for('static', filename='js/main.js') }}"></script>
-
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -24,43 +26,40 @@
 	  <h1>Reroll That City!</h1>
 	  <h3> alpha v0.2 </h3>
 	</div>
-	<div id="buildingsSelection" class="container">
-		<div class="well">
+
+		<div id="sidebar" class="col-md-2 col-lg-2 col-xl-1 well">
 			<div id="buildingsToGen">
-				<h3> Buildings </h3>
-				<div class="col-md-2">
-					<input type="checkbox" data-width=153 data-size="small" checked data-toggle="toggle" name="inn" data-on="Inn" data-off="Inn">
+				<div id="saveLoadRest">
+					<button type="button" id="saveBtn" class="btn btn-primary btn">Save</button>	
+					<button type="button" id="loadBtn" class="btn btn-primary btn">Load</button>	
+					<button type="button" id="resetBtn" class="btn btn-primary btn">Reset</button>	
 				</div>
-				<div class="col-md-2">
-					<input type="checkbox" data-width=153 data-size="small" checked data-toggle="toggle" name="alchemist" data-on="Alchemist" data-off="Alchemist">
-				</div>
-				<div class="col-md-2">
-					<input type="checkbox" data-width=153 data-size="small" checked data-toggle="toggle" name="blacksmith" data-on="Blacksmith" data-off="Blacksmith">
-				</div>
-				<div class="col-md-2">
-					<input type="checkbox" data-width=153 data-size="small" checked data-toggle="toggle" name="jeweler" data-on="Jeweler" data-off="Jeweler">
-				</div>
-				<div class="col-md-2">
-					<input type="checkbox" data-width=153 data-size="small" checked data-toggle="toggle" name="magicweps" data-on="Magic wepons" data-off="Magic wepons">
-				</div>
-				<div class="col-md-2">
-					<input type="checkbox" data-width=153 data-size="small" checked data-toggle="toggle" name="enchanter" data-on="Enchanter" data-off="Enchanter">
-				</div>		
+				<form>
+					<h3> Buildings </h3>
+					<div>
+						<input type="checkbox" data-width=90 data-size="small" checked data-toggle="toggle" name="inn" data-on="Inn" data-off="Inn">
+						<input type="checkbox" data-width=80 data-size="small" checked data-toggle="toggle" name="alchemist" data-on="Alchemist" data-off="Alchemist">
+						<input type="checkbox" data-width=100 data-size="small" checked data-toggle="toggle" name="blacksmith" data-on="Blacksmith" data-off="Blacksmith">
+						<input type="checkbox" data-width=100 data-size="small" checked data-toggle="toggle" name="jeweler" data-on="Jeweler" data-off="Jeweler">
+						<input type="checkbox" data-width=100 data-size="small" checked data-toggle="toggle" name="magicweps" data-on="Magic weps" data-off="Magic weps">
+						<input type="checkbox" data-width=100 data-size="small" checked data-toggle="toggle" name="enchanter" data-on="Enchanter" data-off="Enchanter">
+						<input type="checkbox" data-width=100 data-size="small" checked data-toggle="toggle" name="holysite" data-on="Holysite" data-off="Holysite">
+						<input type="checkbox" data-width=100 data-size="small" checked data-toggle="toggle" name="stables" data-on="Stable" data-off="Stable">
+					</div>					
+				</form>
 			</div>
-			<br>
-			<div id="npcSelection" class="container">
+			<div id="npcSelection">
 				<h3>NPC's</h3>
-				<input type=text size=5 name=a value="10">
-				<hr>
-				<button type="button"  id="regenerateAll" class="btn btn-primary btn-lg">Reroll that City!</button>	
-			</div>	
-		</div>
-	</div>	
+				<form>	
+					<input type=text size=5 name=a value="10">
+					<button type="button"  id="regenerateAll" class="btn btn-primary btn-lg">Reroll that City!</button>	
+				</form>
+			</div>			
+		</div>	
 
-		
 
-	<div id="tables" class="container">	
-		<div id="npcTable" class="col-md-7">
+
+		<div id="npcTable" class="col-md-6 col-lg-6">
 			<h1>NPCs</h1>
 			<table class="table table-striped table-condensed table-hover">
 				<thead>
@@ -86,7 +85,8 @@
 			</table>	
 		</div>
 
-		<div id="buildingsTable" class="col-md-5">
+
+		<div id="buildingsTable" class="col-md-4 col-lg-4">
 			<h1>Buildings</h1>
 			<table class="table table-striped table-condensed table-hover">
 				<thead>
@@ -105,8 +105,6 @@
 				</tbody>
 			</table>	
 		</div>
-
-	</div>
 
 
 </body>

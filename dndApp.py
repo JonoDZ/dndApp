@@ -5,7 +5,6 @@ import dndGenerator
 app = Flask(__name__)
 
 #### variables #####
-requestedNpcs = 10
 
 @app.route('/regenNpcs')
 def regenNpcs():
