@@ -1,3 +1,81 @@
-#sidebar {
-	padding: 3px;
+#mainHeader {
+	height: 200px;
+	width: 100%;
+	background-color: #1b81d8;
 }
+#mainHeader h1 {
+  	position: relative;
+ 	top: 50%;
+ 	transform: translateY(-50%);
+	font-size: 70px;
+	margin: 0px;
+}
+
+#sidebar {
+	float: left;
+	width: 225px;
+}
+#sidebar label {
+	margin-bottom: 100px;
+}
+#sidebar h4 {
+	float: left;
+	line-height: 10px;
+}
+
+.sidebar-3 {
+	width: 65px;
+}
+
+#rerollBtn {
+	border-radius: 5px;
+	border-color: #ccc;
+	border-style: solid;
+	font-size:18px;
+	width: 88px;
+	padding-left: 10px;
+	margin-left:5px;
+}
+
+#cityToGen {
+	height: 60px;
+}
+
+#rerollAll {
+	margin-top: 10px;
+	width: 205px;
+}
+#npcQuantInput {
+	margin-bottom: 5px;
+}
+
+.panel h3{
+	margin: 0;
+}
+#citySizeText {
+	border-radius: 5px;
+	border-color: #ccc;
+	border-style: solid;
+	font-size:18px;
+	width: 100px;
+	padding-left: 10px;
+	margin-left:5px;
+	float: right;
+	height: 35px;
+	padding-top: 2px;
+
+}
+
+#citySize {
+	width: 100px;
+	margin: 0;
+	float: left;
+}
+#versionNum {
+	color:#fff;
+}
+/*
+######
+ANIMATIONS
+######
+*/

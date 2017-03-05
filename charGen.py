@@ -74,18 +74,21 @@ def generateRace(requestedRace=0):
 	charRace =[]
 	#if user has specified a race
 	if (requestedRace == 0):
-		#build character details
-		character['gender'] = random.choice(gender)
 		character['race'] = random.choice(getItemsFromDb('race', 'race'))
-		character['lastName'] = random.choice(getItemsFromDb('last', character['race']))
-		character['firstName'] = random.choice(getItemsFromDb(character['gender'],character['race']))
-		character['personality1'] = random.choice(getItemsFromDb('personality1', 'commonTraits'))
-		character['personality2'] = random.choice(getItemsFromDb('personality2', 'commonTraits'))
-		character['age'] = random.choice(age)
-		#get all personality 1 types
-		#get all personality 2 tyoes
-		#a random data from generated lists, apply to character.
+	else:
+		character['race'] = random.choice(requestedRace)
 
-		return(character)
+	#build character details
+	character['gender'] = random.choice(gender)
+	character['lastName'] = random.choice(getItemsFromDb('last', character['race']))
+	character['firstName'] = random.choice(getItemsFromDb(character['gender'],character['race']))
+	character['personality1'] = random.choice(getItemsFromDb('personality1', 'commonTraits'))
+	character['personality2'] = random.choice(getItemsFromDb('personality2', 'commonTraits'))
+	character['age'] = random.choice(age)
+	#get all personality 1 types
+	#get all personality 2 tyoes
+	#a random data from generated lists, apply to character.
+
+	return(character)
 
 

@@ -1,13 +1,25 @@
   $(function() {
-    $('#regenerateAll').bind('click', function() {
 
+  	//ON REROLL
+    $('#rerollAll').bind('click', function() {
+
+   	  //NPC GEN
+
+   	  //get selected races to gen
+	  var selected = "";
+      $('#npcsToGen input:checked').each(function() {
+        selected = selected + "," + String($(this).attr('name'));
+      });
+      //get the NPC Quantity
       $.getJSON('/regenNpcs', {
-        a: $('input[name="a"]').val(),
+       npcQuant: $('input[name="npcGenQuant"]').val(),
+       charList: selected,
       }, function(data) {
       	$("#npcTable").empty();
         $("#npcTable").append(data);
       });
 
+      //BUILDING GEN
       var selected = "";
       $('#buildingsToGen input:checked').each(function() {
         selected = selected + "," + String($(this).attr('name'));
@@ -23,5 +35,12 @@
     });
   });
 
-  
+ $(function(){
 
+    $("#citySize li a").click(function(){
+
+      $("#citySizeText").text($(event.target).text());
+   });
+
+});
+  

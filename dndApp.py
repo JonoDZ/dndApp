@@ -8,8 +8,11 @@ app = Flask(__name__)
 
 @app.route('/regenNpcs')
 def regenNpcs():
-    a = request.args.get('a', 0, type=int)
-    characterList=dndGenerator.genChar(a)
+    npcQuant = request.args.get('npcQuant', 0, type=int)
+    charList = request.args.get('charList', 0)
+    charList = charList.split(",")
+    charList.remove("")
+    characterList=dndGenerator.genChar(charList, npcQuant)
     return jsonify(render_template('npctable.html', charList=characterList))
 
 @app.route('/regenBuildings')
@@ -22,6 +25,6 @@ def regenBuildings():
 
 @app.route('/')
 def hello_world():
-    characterList=dndGenerator.genChar(10)
+    characterList=dndGenerator.genChar(0,10)
     buildingList=dndGenerator.genBuilding()
     return render_template('index.html', charList=characterList, buildingList=buildingList)
